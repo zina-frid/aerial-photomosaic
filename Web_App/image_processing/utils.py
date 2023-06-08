@@ -57,7 +57,7 @@ def remove_images_except_res():
 # Starting staged processing
 def processing():
     global directory, method
-    resize_dataset = (False, 20)  # min 5
+    resize_dataset = (True, 20)  # min 5
     resize_result = (False, 20)
 
     start = datetime.now()
