@@ -20,10 +20,9 @@ def generate_map(images_df, directory, size_r):
     x, y = size_r
     print(f"ratio {size_r}")
     delta = math.sqrt((max_lat - min_lat) ** 2 + (max_lon - min_lon) ** 2)
-    # bounds = [[min_lat - (y / x) * delta, min_lon - (x / y) * delta],
-    #           [max_lat + (y / x) * delta, max_lon + (x / y) * delta]]
-    bounds = [[min_lat - 0.15*delta - delta_x, min_lon - 0.15*delta - delta_y],
-              [max_lat + 0.15*delta + delta_x, max_lon + 0.15*delta + delta_x]]
+    bounds = [[min_lat - (y / x) * delta, min_lon - (x / y) * delta], [max_lat + (y / x) * delta, max_lon + (x / y) * delta]]
+    # #bounds = [[min_lat - 0.15*delta - delta_x, min_lon - 0.15*delta - delta_y],
+    # #          [max_lat + 0.15*delta + delta_x, max_lon + 0.15*delta + delta_x]]
     print(bounds)
     img_overlay = folium.raster_layers.ImageOverlay(name='image map',
                                                     image=img_dir,
