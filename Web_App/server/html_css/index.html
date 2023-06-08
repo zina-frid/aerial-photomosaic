@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Photomosaic</title>
+    <link type="text/css" rel="stylesheet" href="styles.css"/>
+    <script>
+        window.onload = function() {
+            var addBackground = document.getElementById('add_background');
+            var uploadImageInput = document.getElementById('upload-image');
+
+            addBackground.addEventListener('click', function() {
+                uploadImageInput.click();
+            });
+
+            var folderBackground = document.getElementById('folder_background');
+            var folderImageInput = document.getElementById('folder-image');
+
+            folderBackground.addEventListener('click', function() {
+                folderImageInput.click();
+            });
+        };
+    </script>
+</head>
+<body>
+<div id="container">
+    <form enctype="multipart/form-data" action="/stitch" method="post" id="the_form">
+        <a id="add_background" >
+        <img id="add_img" src="../src/add.png">
+            <label id="add_label" for="upload-image">
+                create a new <br> photomosaic
+            </label>
+            <input type="file" id="upload-image" name="upload-image" accept="image/*" onchange="form.submit();"
+               required multiple/>
+        </a>
+    </form>
+
+    <form enctype="multipart/form-data" action="/open" method="post" id="the_form_2">
+        <div id="folder_background">
+        <img id="folder_img" src="../src/folder.png">
+            <label id="folder_label" for="folder-image">
+                open an existing <br> photomosaic
+            </label>
+            <input type="file" id="folder-image" name="folder-image" accept="text/html" onchange="form.submit();" required/>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
